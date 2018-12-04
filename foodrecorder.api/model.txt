@@ -1,0 +1,25 @@
+Food Recorder
+--------------------
+
+get /api/food - List of all available food
+post /api/food - Add food
+delete /api/food/<id> - Delete the food item
+Model:
+	Food:
+		ID
+		Name
+		Calories
+
+get /api/eaten - List of all eaten food today
+get /api/eaten?date=<date> - List of all eaten food on teh day <date>
+post /api/eaten - Add food eaten today
+delete /api/eaten/<id> - Delete food item eaten today
+Mode:
+	EatenFood:
+		ID
+		FoodID
+		Servings
+		Calories
+		Comment
+
+
