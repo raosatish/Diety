@@ -6,6 +6,8 @@ using FoodRecorder.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+namespace FoodRecorder.Controllers
+{
 [Route("api/[controller]")]
 [ApiController]
 public class FoodController:Controller
@@ -35,4 +37,5 @@ public class FoodController:Controller
            if(id != Guid.Empty) return Created("", id);
            return BadRequest();
     }
+}
 }

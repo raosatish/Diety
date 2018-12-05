@@ -9,7 +9,7 @@ using FoodRecorder.Common;
 using FoodRecorder.Common.ExtensionMethods;
 using FoodRecorder.Data;
 
-namespace api1.Controllers
+namespace FoodRecorder.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
