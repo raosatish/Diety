@@ -183,11 +183,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\POCRoot\\foodrecorder.common\\foodrecorder.common.csproj",
+      "projectUniqueName": "D:\\POCRoot\\Diety\\foodrecorder.common\\foodrecorder.common.csproj",
       "projectName": "foodrecorder.common",
-      "projectPath": "D:\\POCRoot\\foodrecorder.common\\foodrecorder.common.csproj",
+      "projectPath": "D:\\POCRoot\\Diety\\foodrecorder.common\\foodrecorder.common.csproj",
       "packagesPath": "C:\\Users\\Satish\\.nuget\\packages\\",
-      "outputPath": "D:\\POCRoot\\foodrecorder.common\\obj\\",
+      "outputPath": "D:\\POCRoot\\Diety\\foodrecorder.common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

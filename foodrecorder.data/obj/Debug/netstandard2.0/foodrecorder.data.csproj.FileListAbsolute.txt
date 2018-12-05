@@ -1,0 +1,12 @@
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.csprojAssemblyReference.cache
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.csproj.CoreCompileInputs.cache
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.AssemblyInfoInputs.cache
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.AssemblyInfo.cs
+D:\POCRoot\Diety\foodrecorder.data\bin\Debug\netstandard2.0\foodrecorder.data.deps.json
+D:\POCRoot\Diety\foodrecorder.data\bin\Debug\netstandard2.0\foodrecorder.data.dll
+D:\POCRoot\Diety\foodrecorder.data\bin\Debug\netstandard2.0\foodrecorder.data.pdb
+D:\POCRoot\Diety\foodrecorder.data\bin\Debug\netstandard2.0\foodrecorder.common.dll
+D:\POCRoot\Diety\foodrecorder.data\bin\Debug\netstandard2.0\foodrecorder.common.pdb
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.csproj.CopyComplete
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.dll
+D:\POCRoot\Diety\foodrecorder.data\obj\Debug\netstandard2.0\foodrecorder.data.pdb
