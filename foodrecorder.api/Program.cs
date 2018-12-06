@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace foodrecorder
 {
@@ -19,6 +20,11 @@ namespace foodrecorder
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+	                .ReadFrom.Configuration(hostingContext.Configuration)
+	                .Enrich.FromLogContext()
+	                .WriteTo.Console())
                 .UseStartup<Startup>();
+    
     }
 }

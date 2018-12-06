@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using FoodRecorder.API.Services;
+using FoodRecorder.Common;
 using FoodRecorder.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,7 @@ public class FoodController:Controller
 
     [HttpGet()]
     public ActionResult GetFood(Guid token){
+            Session session = _loginService.ValidateUserContext(token);
             List<Food> result = _repo.GetAllFoods(token);
             if(result == null) return NotFound();
             return Ok(result);
@@ -33,6 +35,7 @@ public class FoodController:Controller
 
     [HttpPost]
     public ActionResult AddFood(Guid token,[FromBody] Food foodItem){
+           Session session = _loginService.ValidateUserContext(token);
            Guid id =  _repo.AddFood(token, foodItem);
            if(id != Guid.Empty) return Created("", id);
            return BadRequest();

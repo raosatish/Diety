@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "foodrecorder", "foodrecorder.csproj", "{5CC6F213-A7B8-41C1-8B3C-131A0F4542C9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "foodrecorder.common", "..\foodrecorder.common\foodrecorder.common.csproj", "{79DC43FE-31B1-4531-BD61-CAED9060816B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "foodrecorder.data", "..\foodrecorder.data\foodrecorder.data.csproj", "{FF99C737-0ACA-464F-9E5A-529BBF8D0EAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5CC6F213-A7B8-41C1-8B3C-131A0F4542C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC6F213-A7B8-41C1-8B3C-131A0F4542C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC6F213-A7B8-41C1-8B3C-131A0F4542C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DC43FE-31B1-4531-BD61-CAED9060816B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DC43FE-31B1-4531-BD61-CAED9060816B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DC43FE-31B1-4531-BD61-CAED9060816B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DC43FE-31B1-4531-BD61-CAED9060816B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF99C737-0ACA-464F-9E5A-529BBF8D0EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF99C737-0ACA-464F-9E5A-529BBF8D0EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF99C737-0ACA-464F-9E5A-529BBF8D0EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF99C737-0ACA-464F-9E5A-529BBF8D0EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,7 +19,9 @@ public class LoginService : ILoginService
 
     public Session ValidateUserContext(Guid token)
     {
-        return _loggedUsers.FirstOrDefault(c=> c.ID == token);
+        Session session = _loggedUsers.FirstOrDefault(c=> c.ID == token);
+        if(session == null) throw new Exception("Access Denied.");
+        return session;
     }
 }
 }

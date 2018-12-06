@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FoodRecorder.Common;
+using RaoInc.Services;
 
 namespace FoodRecorder.Data{
-    public class InMemoryFoodRepository : IFoodRepository
+    public class JSONFoodRepository : IFoodRepository
     {
+        IDataFileService<FoodDB> _dataFileService;
         FoodDB _db;
-        public InMemoryFoodRepository()
+        public JSONFoodRepository(IDataFileService<FoodDB> dataFileService)
         {
-            _db = new FoodDB();
+            _dataFileService = dataFileService;
+            _db = _dataFileService.GetDB();
         }
 
         public Guid AddFood(Session sess, Food food)
@@ -28,6 +31,7 @@ namespace FoodRecorder.Data{
             food.ModifiedOn = DateTime.UtcNow;
             food.ID = Guid.NewGuid();
             foods.Add(food);
+            _dataFileService.SaveDB(_db);
             return food.ID;
         }
 
@@ -55,6 +59,7 @@ namespace FoodRecorder.Data{
             if(IsSessionAvailable(loggedUser)){
                 Session newSession = new Session(loggedUser);
                 _db.UserSessions.Add(loggedUser.ID, newSession);
+                _dataFileService.SaveDB(_db);
                 return newSession;
             }
             else{
@@ -80,6 +85,7 @@ namespace FoodRecorder.Data{
                     ModifiedOn = DateTime.UtcNow
                 };
                 _db.Users.Add(user);
+                _dataFileService.SaveDB(_db);
                 return user;
             }
             throw new Exception($"Unable to register {firstName}, {lastName}");
@@ -93,13 +99,6 @@ namespace FoodRecorder.Data{
         private bool IsSessionAvailable(User loggedUser)
         {
             return _db?.UserSessions?.Any(c=>c.Key == loggedUser.ID)==false;
-        }
-        private Session ValidateToken(Guid token){
-            if(_db?.UserSessions?.Any() == false) throw new Exception("Access denied to resource.");
-            foreach(var usess in _db.UserSessions){
-                if(usess.Value.ID == token) return usess.Value;
-            }
-            throw new Exception("Access denied to resource.");
         }
     }
 }

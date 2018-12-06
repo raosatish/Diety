@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using RaoInc.Services;
 
 namespace foodrecorder
 {
@@ -32,9 +32,13 @@ namespace foodrecorder
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info{ Title="My Api", Version="v1"});
             });
-            services.AddSingleton<IFoodRepository,InMemoryFoodRepository>();
+            services.AddSingleton<IFoodRepository,JSONFoodRepository>();
             services.AddSingleton<ILoginService, LoginService>();
             services.AddSingleton<IConfigurationService, ConfigurationService>();
+            services.AddSingleton<IDataFileService<FoodDB>>(c=> {
+                string path = (new ConfigurationService(Configuration)).GetDBConnectionString();
+                return new JSONDataFileService<FoodDB>(path);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

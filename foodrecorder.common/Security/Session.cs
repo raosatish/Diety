@@ -12,6 +12,10 @@ public class Session{
         //META Data
     public DateTime CreatedOn {get; set;}
 
+public Session()
+{
+    
+}
     public Session(User user)
     {
         ID = Guid.NewGuid();
