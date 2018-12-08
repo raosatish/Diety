@@ -12,11 +12,11 @@ public enum UnitOfMeasure{
     [Description("Grain")]
     Grain=1003, 
     [Description("Dram")]
-    Dram=1003, 
+    Dram=1004, 
     [Description("Ounce")]
-    Ounce=1003, 
+    Ounce=1005, 
     [Description("Pound,lb,lbs")]
-    Pound=1003,  
+    Pound=1006,  
 
 //Capacity - Volume
     [Description("Liter, L, lt, lts")]
