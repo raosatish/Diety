@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using FoodRecorder.API.DTOs;
 using FoodRecorder.API.Services;
 using FoodRecorder.Common;
 using FoodRecorder.Data;
@@ -39,6 +40,20 @@ public class FoodController:Controller
            Guid id =  _repo.AddFood(session, foodItem);
            if(id != Guid.Empty) return Created("", id);
            return BadRequest();
+    }
+
+    [HttpPost("id")]
+    public ActionResult UpdateFood(Guid token, Guid id, [FromBody] FoodDTOForUpdate foodItem)
+    {
+           Session session = _loginService.ValidateUserContext(token);
+           Food food = new Food();
+           food.ID = id;
+           food.Name = foodItem.Name;
+           food.CaloriesPerServing = foodItem.CaloriesPerServing;
+           food.Serving = foodItem.Serving;
+           Guid foundID = _repo.UpdateFood(session, food);
+           if(foundID == Guid.Empty) return NotFound();
+           return Ok(foundID);
     }
 }
 }

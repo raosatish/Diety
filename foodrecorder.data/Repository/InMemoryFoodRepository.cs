@@ -37,6 +37,13 @@ namespace FoodRecorder.Data{
             if(string.IsNullOrWhiteSpace(food.Name)) throw new Exception("Food name is not available.");
         }
 
+        private void ValidateUpdatableFood(Food food)
+        {
+            if(food == null)throw new Exception("Invalid Food.");
+            if(string.IsNullOrWhiteSpace(food.Name)) throw new Exception("Food name is not available.");
+        }
+
+
         public List<Food> GetAllFoods(Session sess)
         {
             List<Food> result=null;
@@ -100,6 +107,25 @@ namespace FoodRecorder.Data{
                 if(usess.Value.ID == token) return usess.Value;
             }
             throw new Exception("Access denied to resource.");
+        }
+
+        public Guid UpdateFood(Session sess, Food food)
+        {
+            List<Food> foods=null;
+            ValidateUpdatableFood(food);
+            if(_db.UserFoods.ContainsKey(sess.User))
+            {
+                foods = _db.UserFoods[sess.User];            
+            }
+            Food updatedFood = foods?.FirstOrDefault(c=>c.ID == food.ID);
+            if(updatedFood != null){
+                updatedFood.Name = food.Name;
+                updatedFood.CaloriesPerServing = food.CaloriesPerServing;
+                updatedFood.Serving = food.Serving;
+                updatedFood.ModifiedOn = DateTime.UtcNow;
+                return updatedFood.ID;
+            }
+            return Guid.Empty;            
         }
     }
 }

@@ -11,5 +11,7 @@ namespace FoodRecorder.Data{
                     string emailId, string secretQuestion, string secretAnswer);
     List<Food> GetAllFoods(Session sess);
     Guid AddFood(Session sess, Food food);
+
+    Guid UpdateFood(Session session, Food food);
     }
 }

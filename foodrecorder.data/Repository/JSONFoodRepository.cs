@@ -15,6 +15,25 @@ namespace FoodRecorder.Data{
             _db = _dataFileService.GetDB();
         }
 
+        public Guid UpdateFood(Session sess, Food food)
+        {
+            List<Food> foods=null;
+            ValidateUpdatableFood(food);
+            if(_db.UserFoods.ContainsKey(sess.User))
+            {
+                foods = _db.UserFoods[sess.User];            
+            }
+            Food updatedFood = foods?.FirstOrDefault(c=>c.ID == food.ID);
+            if(updatedFood != null){
+                updatedFood.Name = food.Name;
+                updatedFood.CaloriesPerServing = food.CaloriesPerServing;
+                updatedFood.Serving = food.Serving;
+                updatedFood.ModifiedOn = DateTime.UtcNow;
+                _dataFileService.SaveDB(_db);
+                return updatedFood.ID;
+            }
+            return Guid.Empty;            
+        }
         public Guid AddFood(Session sess, Food food)
         {
             List<Food> foods=null;
@@ -36,6 +55,11 @@ namespace FoodRecorder.Data{
         }
 
         private void ValidateCreatableFood(Food food)
+        {
+            if(food == null)throw new Exception("Invalid Food.");
+            if(string.IsNullOrWhiteSpace(food.Name)) throw new Exception("Food name is not available.");
+        }
+        private void ValidateUpdatableFood(Food food)
         {
             if(food == null)throw new Exception("Invalid Food.");
             if(string.IsNullOrWhiteSpace(food.Name)) throw new Exception("Food name is not available.");
@@ -100,5 +124,6 @@ namespace FoodRecorder.Data{
         {
             return _db?.UserSessions?.Any(c=>c.Key == loggedUser.ID)==false;
         }
+
     }
 }
